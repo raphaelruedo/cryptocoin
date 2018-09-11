@@ -43,7 +43,7 @@ class AppPage extends React.Component {
               <Container>
                 <Row>
                   <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5">
-                    <h1 className="h1-responsive font-weight-bold mt-sm-5">{data.bpi.BRL.rate} - <span>{data.bpi.BRL.description}</span></h1>
+                    <h1 className="h1-responsive font-weight-bold mt-sm-5">R$ {data.bpi.BRL.rate}</h1>
                     <h6>$ {data.bpi.USD.rate} - <span>{data.bpi.USD.description}</span></h6> 
                     <hr className="hr-light" />
                     <h6 className="mb-6"> {data.disclaimer}</h6>

@@ -64,10 +64,7 @@ class CardBTC extends React.Component {
                         </Col>
                         <Col md="4">
                             <p>Negociadas</p>
-                            <p>{new Intl.NumberFormat('pt-br', {
-                            style: 'currency',
-                            currency: 'BRL'
-                        }).format(data.ticker.vol)}</p>
+                            <p>{new Intl.NumberFormat('pt-br').format(data.ticker.vol)}</p>
                         </Col>
                     </Row>
                 </div>

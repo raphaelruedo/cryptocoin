@@ -7,14 +7,15 @@ import 'mdbreact/dist/css/mdb.css';
 
 import Header  from './components/header/header';
 import FooterPage from './components/footer/footer';
-import Main from './main';
+import Apppage from './components/apppage/apppage';
+// import Main from './main';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Header />
-        <Main />
+        <Apppage />
         <FooterPage/>
       </div>
     );

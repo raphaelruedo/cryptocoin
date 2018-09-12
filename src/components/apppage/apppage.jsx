@@ -1,61 +1,34 @@
 import React from 'react';
 import { Mask, Row, View, Container } from 'mdbreact';
+import CardBTC from '../cards/card_btc';
+import CardBCH from '../cards/card_bch';
+import CardLTC from '../cards/card_ltc';
+import AboutPage from '../about/about';
+import ReferencesPage from '../references/references';
+import TecnologyPage from '../tecnology/tecnology';
+
 class AppPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      error: null,
-      isLoaded: false,
-      items: []
-    };
-  }
+    render() {
+        return (
+            <div id="apppage">
+                <View>
+                    <Mask className="d-flex justify-content-center align-items-center gradient">
+                        <Container id="home">
+                            <Row className="text-center">
+                                <CardBTC />
+                                <CardBCH />
+                                <CardLTC />
+                            </Row>
+                        </Container>
+                    </Mask>
+                </View>
+                <AboutPage />
+                <ReferencesPage />
+                <TecnologyPage />
 
-  componentDidMount() {
-    fetch("https://api.coindesk.com/v1/bpi/currentprice/BRL.json")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            data: result
-          });
-        },
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      )
-  }
-
-  render() {
-    const { error, isLoaded, data } = this.state;
-    if (error) {
-      return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
-      return <div>Loading...</div>;
-    } else {
-      return (
-        <div id="apppage">
-          <View>
-            <Mask className="d-flex justify-content-center align-items-center gradient">
-              <Container>
-                <Row>
-                  <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5">
-                    <h1 className="h1-responsive font-weight-bold mt-sm-5">R$ {data.bpi.BRL.rate}</h1>
-                    <h6>$ {data.bpi.USD.rate} - <span>{data.bpi.USD.description}</span></h6> 
-                    <hr className="hr-light" />
-                    <h6 className="mb-6"> {data.disclaimer}</h6>
-                  </div>
-                </Row>
-              </Container>
-            </Mask>
-          </View>
-        </div>
-      );
+            </div>
+        );
     }
-  }
 };
 
 export default AppPage;

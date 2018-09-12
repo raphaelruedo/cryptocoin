@@ -1,6 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, Container } from 'mdbreact';
+import Scrollchor from 'react-scrollchor';
+import { Navbar, NavbarBrand, NavbarNav, NavItem, NavbarToggler, Collapse, Container, Fa } from 'mdbreact';
 
 class Header extends React.Component {
     constructor(props) {
@@ -26,32 +26,50 @@ class Header extends React.Component {
     render() {
         const overlay = <div id="sidenav-overlay" style={{ backgroundColor: 'transparent' }} onClick={this.handleNavbarClick} />
         return (
-            <Router>
-                <div>
-                    <Navbar dark expand="md" fixed="top" scrolling>
-                        <Container>
-                            <NavbarBrand>
-                                <strong className="white-text">CryptoCoin</strong>
-                            </NavbarBrand>
-                            <NavbarToggler onClick={this.onClick} />
-                            <Collapse isOpen={this.state.collapse} navbar>
-                                <NavbarNav right>
-                                    <NavItem active>
-                                        <NavLink to="#!">Home</NavLink>
-                                    </NavItem>
-                                    <NavItem>
-                                        <NavLink to="#!">About</NavLink>
-                                    </NavItem>
-                                    <NavItem>
-                                        <NavLink to="#!">GitHub</NavLink>
-                                    </NavItem>
-                                </NavbarNav>
-                            </Collapse>
-                        </Container>
-                    </Navbar>
-                    {this.state.collapse && overlay}
-                </div>
-            </Router>
+            <div>
+                <Navbar dark expand="md" fixed="top" scrolling>
+                    <Container>
+                        <NavbarBrand>
+                            <strong className="white-text">cryptocoin</strong>
+                        </NavbarBrand>
+                        <NavbarToggler onClick={this.onClick} />
+                        <Collapse isOpen={this.state.collapse} navbar>
+                            <NavbarNav left>
+                                <NavItem active>
+                                    <Scrollchor to="home" animate={{ offset: 10, duration: 600 }} className="nav-link">Início</Scrollchor>
+                                </NavItem>
+                                <NavItem>
+                                    <Scrollchor to="#about" animate={{ offset: 10, duration: 600 }} className="nav-link">Sobre</Scrollchor>
+                                </NavItem>
+                                <NavItem>
+                                    <Scrollchor to="#references" animate={{ offset: 10, duration: 600 }} className="nav-link">O que são?</Scrollchor>
+                                </NavItem>
+                                <NavItem>
+                                    <Scrollchor to="#tecnology" animate={{ offset: 10, duration: 600 }} className="nav-link">Tecnologias</Scrollchor>
+                                </NavItem>
+                            </NavbarNav>
+                            <NavbarNav right >
+                                <NavItem>
+                                    <a className="nav-link" href="https://github.com/raphaelruedo/cryptocoin">
+                                        <Fa icon="github"></Fa>
+                                    </a>
+                                </NavItem>
+                                <NavItem>
+                                    <a className="nav-link" href="https://www.linkedin.com/in/raphael-ruedo-141406140/">
+                                        <Fa icon="linkedin"></Fa>
+                                    </a>
+                                </NavItem>
+                                <NavItem>
+                                    <a className="nav-link" href="https://raphaelruedo.github.io/site/">
+                                        <Fa icon="code"></Fa>
+                                    </a>
+                                </NavItem>
+                            </NavbarNav>
+                        </Collapse>
+                    </Container>
+                </Navbar>
+                {this.state.collapse && overlay}
+            </div>
         );
     }
 };

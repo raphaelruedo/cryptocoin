@@ -6,6 +6,9 @@
   background: linear-gradient(to 45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
 }
 
+.top-nav-collapse{
+  background-color: #1d367d !important;
+}
 #apppage .view {
   background-image: url('../resources/img/bg.jpg');
   background-repeat: no-repeat;
@@ -19,7 +22,7 @@
 }
 
 #apppage .navbar {
-  transition: background .5s ease-in-out,padding .5s ease-in-out;
+  transition: background .5s ease-in-out, padding .5s ease-in-out;
 }
 
 #apppage .top-nav-collapse {
@@ -28,6 +31,15 @@
 
 @media (max-width: 768px) {
   #apppage .navbar:not(.top-nav-collapse) {
-      background: #424f95 !important;
+    background: #424f95 !important;
   }
+}
+
+footer.page-footer .footer-copyright,
+.mdb-color.lighten-2 {
+  background-color: #1d367d !important;
+  color: #ffff !important;
+}
+footer.page-footer a{
+  color:#ffff !important;
 }
